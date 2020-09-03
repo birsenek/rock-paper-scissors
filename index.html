@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <title>Game On!</title>
+    <script src="gameRules.js"></script>
+</head>
+<body>
+    <div class="content">
+        <header>
+            <h1>Pedra, Papel, Tesoura</h1>
+        </header>
+        
+        <fieldset>
+            <legend>
+                Escolha sua jogada:
+            </legend>
+            <label for="rock"><input type="radio" name="playerMove" id="rock" value="1">Pedra</label>
+            <label for="paper"><input type="radio" name="playerMove" id="paper" value="2">Papel</label>
+            <label for="scissor"><input type="radio" name="playerMove" id="scissor" value="3">Tesoura</label>
+        </fieldset>
+
+        <button onclick="gameRound(playerSelection(), computerPlay())">Jogar!</button>
+
+        <div class="computer-play">Escolha do Computador: <span id="computer-play"></span></div>
+        <div class="result">Resultado: <span id="result"></span></div>
+    </div>
+    
+       
+</body>
+
+
+</html>

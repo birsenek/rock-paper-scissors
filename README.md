@@ -1,0 +1,1 @@
+In this project I'll be building a Rock, Papper Scissors game with Javascript.
