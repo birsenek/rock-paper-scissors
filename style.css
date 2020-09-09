@@ -10,13 +10,29 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    height: 100vh;
-}
+    justify-content: space-between;
+} 
 
 fieldset {
+    margin-bottom: 15px;
     padding: 20px;
     font-size: 1.1em;
+    display: flex;
+}
+
+.scoreboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px;
+    margin-bottom: 15px;
+    margin-top: -15px;
+}
+
+.scoreboard h3 {
+    margin-bottom: 3px;
+    text-decoration: underline;
 }
 
 label {
@@ -43,4 +59,8 @@ button {
     border-radius: 50%;
     box-shadow: 1px 1px 5px 5px #000000;
     outline: none;
+}
+
+button:active {
+    background-color: #ff000055;
 }
