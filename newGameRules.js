@@ -38,7 +38,7 @@ this.pontuacaoPc = 0;
 
 //checar score
 const checkScoreboard = () => {
-  if (this.pontuacaoPlayer == 5 || this.pontuacaoPc == 5) {
+  if (this.pontuacaoPlayer == 3 || this.pontuacaoPc == 3) {
     button.style.color = "black";
     final()
   } 
@@ -52,10 +52,10 @@ const final = () => {
   const scoreboard = document.querySelector('#scoreboard')
   const finalResult = document.querySelector('#resultados')
   content.removeChild(finalResult)
-  if (this.pontuacaoPlayer == 5) {
+  if (this.pontuacaoPlayer == 3) {
     placarFinal.textContent = "Parabéns! Você Venceu! \\[T]/"
     scoreboard.appendChild(placarFinal)
-  } else if (this.pontuacaoPc == 5) {
+  } else if (this.pontuacaoPc == 3) {
     placarFinal.textContent = "Que pena! Você Perdeu! :("
     scoreboard.appendChild(placarFinal)
   }
@@ -65,6 +65,30 @@ const final = () => {
   buttonArea.appendChild(newGame)
 
 }
+//ciclar jogadas
+const ciclePlays = () => {
+  
+  setTimeout(() => {
+    buttonArea.removeChild(button)
+    // button.textContent = a
+    buttonArea.appendChild(imgs)
+    imgs.src = './assets/rock.png'
+  }, 500);
+  
+  setTimeout(() => {
+    imgs.src = './assets/paper.png'
+  }, 1000);
+  
+  setTimeout(() => {
+    imgs.src = './assets/scissor.png'
+  }, 1500);
+
+  setTimeout(() => {
+    buttonArea.removeChild(imgs)
+    buttonArea.appendChild(button)
+  }, 2000)
+}
+
 
 //dispara o round
 
@@ -72,17 +96,7 @@ const gameRound = () => {
   button.disabled = true
   const computerPlay = pcPlay();
   const playerSelection = playerPlay();
-  setTimeout(() => {
-    button.textContent = a
-  }, 500);
-  
-  setTimeout(() => {
-    button.textContent = b
-  }, 1000);
-  
-  setTimeout(() => {
-    button.textContent = c
-  }, 1500);
+  ciclePlays()
 
   document.getElementById("computer-play").innerHTML = ""
   document.getElementById("result").innerHTML = ""
@@ -96,7 +110,6 @@ const gameRound = () => {
       document.getElementById("jogador").innerHTML = this.pontuacaoPlayer;
       document.getElementById("result").innerHTML = "Vitória!"
       checkScoreboard()
-      button.textContent = "Jogar!"
       button.disabled = false
     }, 2000);
   } else if (playerSelection == a && computerPlay == b
@@ -108,13 +121,11 @@ const gameRound = () => {
       document.getElementById("computador").innerHTML = this.pontuacaoPc;
       document.getElementById("result").innerHTML = "Derrota!"
       checkScoreboard()
-      button.textContent = "Jogar!"
       button.disabled = false
     }, 2000);
   } else {
     setTimeout(() => {
       document.getElementById("result").innerHTML = "Empate!"
-      button.textContent = "Jogar!"
     }, 2000);
     button.disabled = false
   }
@@ -130,6 +141,7 @@ button.addEventListener('click', e => {
   }
 })
 
+const imgs = document.createElement('img')
 const newGame = document.createElement('button')
   const buttonArea = document.querySelector('#buttonArea')
   newGame.textContent = "Novo Jogo!"
