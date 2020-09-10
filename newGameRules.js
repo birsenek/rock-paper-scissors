@@ -125,6 +125,7 @@ const gameRound = () => {
     }, 2000);
   } else {
     setTimeout(() => {
+      document.getElementById("computer-play").innerHTML = computerPlay;
       document.getElementById("result").innerHTML = "Empate!"
     }, 2000);
     button.disabled = false
